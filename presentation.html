@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Integrating hyperspectral images in genetic and prediction studies: a case of study in maize under inoculation with plant growth-promoting bacteria</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Rafael Massahiro Yassue, Roberto Fritsche-Neto, and Gota Morota" />
+    <meta name="date" content="2022-03-16" />
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="animate.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Integrating hyperspectral images in genetic and prediction studies: a case of study in maize under inoculation with plant growth-promoting bacteria
+### Rafael Massahiro Yassue, Roberto Fritsche-Neto, and Gota Morota
+### ESALQ/USP and Virginia Tech
+### 2022-03-16
+
+---
+
+class: animated, fadeIn
+
+# Summary
+--
+
++ Allogamous Breeding Lab and Lab of Animal Data Sciences
+
+--
++ Motivations
+ - Why study plant growth-promoting bacteria (PGPB)?
+ - Why study the genetic architecture of the response to PGPB?
+ - Why use hyperspectral imagery?
+
+--
++ Material and Methods
+  - Genetic material
+  - PGPB
+  - Greenhouse experiment 
+  - hyperspectral data collection
+
+--
++ Studies:
+ 1. Classification of plant growth-promoting bacteria inoculation status and prediction of growth-related traits in tropical maize using hyperspectral image and genomic data
+ 2. Integrating hyperspectral and multi-phenotype genome-wide association analysis to dissect the genetic architecture of growth-related phenotypes in maize under inoculation with plant growth-promoting bacteria inoculation
+ 
+---
+class: animated, fadeIn
+
+# Allogamous Breeding Lab and Lab of Animal Data Sciences
+&lt;img src="Figures/lab_presentation.png" width="95%" style="display: block; margin: auto;" /&gt;
+
+---
+class: animated, fadeIn
+
+# Why study plant growth-promoting bacteria (PGPB)?
+&lt;img src="Figures/stronger_plants.png" width="95%" style="display: block; margin: auto;" /&gt;
+
+---
+class: animated, fadeIn
+
+## Why study the genetic architecture of the response to PGPB?
+&lt;img src="Figures/figures.png" width="95%" style="display: block; margin: auto;" /&gt;
+
+---
+class: animated, fadeIn
+# Why use hyperspectral imagery?
+&lt;img src="Figures/why_Hyperpsectral.png" width="95%" style="display: block; margin: auto;" /&gt;
+
+---
+class: animated, fadeIn
+
+# Goal 
+
++ Using hyperspectral image and genomic data to assess the genetic architecture of the symbioses between maize and plant growth-promoting bacteria and improve the predictive ability for growth-related traits 
+
+&lt;br /&gt; &lt;br /&gt; &lt;br /&gt; &lt;br /&gt;
+
+&lt;img src="Figures/figs1.png" width="150%" /&gt;
+
+---
+class: animated, fadeIn
+
+# Materials used throughout the studies 
++ Greenhouse condition
++ Early stage of maize development (six fully expanded)
++ 360 inbred lines
++ 13,826 SNPs
++ Two management both under nitrogen limited conditions: 
+  - **B+** Syntetic population of 4 PGPB: 
+      * *Bacillus thuringiensis* RZ2MS9
+      * *Delftia* sp. RZ4MS18 
+      * *Pantoea agglomerans* 33.1
+      * *Azospirillum brasilense* Ab-v5
+  - **B-** Without PGPB 
++ Manually measured phenotypes: 
+  - Plant height (PH)
+  - Stalk diameter (SD) 
+  - Shoot dry mass (SDM)
++ Hyperspectral phenotypes: 
+  - 150 wavelengths (from 386 to 1021 nm)
+  - 131 hyperspectral index
+
+---
+class: animated, fadeIn
+# Hyperspectral image acquisition
+&lt;img src="Figures/fig01_da.png" width="90%" style="display: block; margin: auto;" /&gt;
+&lt;p style="font-family: times, serif; font-size:11pt; font-style:italic"&gt;
+Figure. Summary of data acquisition and processing. A) the hyperspectral benchtop camera used for data collection; B) region of interest of the last completed expanded leaf; C) cube image; and D) image mask
+&lt;/p&gt;
+
+---
+class: animated, fadeIn
+# Exploratory analysis
+&lt;img src="papers/2-1.jpeg" width="70%" style="display: block; margin: auto;" /&gt;
+&lt;p style="font-family: times, serif; font-size:11pt; font-style:italic"&gt;
+Figure. A: Spectral signatures of the maize genotypes with (B+) and without (B-) PGPB inoculation. B: Principal component biplot of the 360 maize genotypes and 150 spectral wavelengths with (B+) and without (B-) PGPB inoculation.
+&lt;/p&gt;
+
+---
+class: animated, fadeIn
+# Exploratory analysis
+&lt;img src="papers/2-2.jpeg" width="70%" style="display: block; margin: auto;" /&gt;
+&lt;p style="font-family: times, serif; font-size:11pt; font-style:italic"&gt;
+Figure. Phenotypic correlations between plant height (PH), Stalk diameter (SD), and shoot dry mass (SDM) and hyperspectral reflectance (left) and hyperspectral index (right) with and without PGPB inoculation (B+ and B-).
+&lt;/p&gt;
+
+---
+class: inverse, animated, fadeIn
+ &lt;br /&gt; &lt;br /&gt; &lt;br /&gt; &lt;br /&gt; &lt;br /&gt; &lt;br /&gt;
+&lt;center&gt;
+&lt;h1&gt;
+Classification of plant growth-promoting bacteria inoculation status and prediction of growth-related traits in tropical maize using hyperspectral image and genomic data
+&lt;/h1&gt;
+&lt;/center&gt;
+
+---
+class: animated, fadeIn
+# Cross-validation scheme
+&lt;img src="papers/1-1.jpeg" width="80%" style="display: block; margin: auto;" /&gt;
+&lt;p style="font-family: times, serif; font-size:11pt; font-style:italic"&gt;
+Figure. Graphic representation of the cross-validation design using the hyperspectral image and genomic data for A. classification of inoculation status and B. Prediction of growth-related phenotypes.
+&lt;/p&gt;
+---
+class: animated, fadeIn
+
+# Single and multi-omic models
+&lt;p style="font-family: times, serif; font-size:11pt; font-style:italic"&gt;
+Table. List of models and covariates included in the analysis.
+&lt;/p&gt;
+&lt;img src="papers/1-2.jpeg" width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+class: animated, fadeIn
+
+# PGPB inoculation classification 
+&lt;img src="papers/1-3.jpeg" width="70%" style="display: block; margin: auto;" /&gt;
+&lt;p style="font-family: times, serif; font-size:11pt; font-style:italic"&gt;
+Figure. Classification accuracy of inoculation status (B+ and B-) using 150 hyperspectral bands. 
+&lt;/p&gt;
+
+---
+class: animated, fadeIn
+# Growth-related phenotypes prediction
+&lt;img src="papers/1-4.png" width="80%" style="display: block; margin: auto;" /&gt;
+&lt;p style="font-family: times, serif; font-size:11pt; font-style:italic"&gt;
+Figure. Predictive ability of plant height (PH), stalk diameter (SD), and shoot dry mass (SDM) using phenomic prediction, genomic prediction, and multi-omic prediction models in each management condition (B+ and B-). 
+&lt;/p&gt;
+
+
+---
+class: animated, fadeIn
+# Conclusion
+
++ Hyperspectral reflectance data can classify plant growth-promoting bacteria inoculation status
+
++ Phenomic prediction performs better than genomic prediction depending on the target phenotype
+
++ AutoML is a promising approach for automating hyperparameter tuning for classification and prediction
+
+---
+class: inverse, animated, fadeIn
+ &lt;br /&gt; &lt;br /&gt; &lt;br /&gt; &lt;br /&gt; &lt;br /&gt;
+&lt;center&gt;
+&lt;h1&gt;
+Integrating hyperspectral and multi-phenotype genome-wide association analysis to dissect the genetic architecture of growth-related phenotypes in maize under inoculation with plant growth-promoting bacteria inoculation
+&lt;/h1&gt;
+&lt;/center&gt;
+
+---
+class: animated, fadeIn
+# Materials and Methods
++ Phenotypes:
+  - Manually measured phenotypes: 
+     * Plant height (PH)
+     * Stalk diameter (SD) 
+     * Shoot dry mass (SDM)
+  - Hyperspectral phenotypes: 
+     * 150 wavelengths (from 386 to 1021 nm)
+     * 131 hyperspectral index
+
++ Bayesian GWAS
+  - BayesC 
+  - `\(\pi\)` = 0.99
+  - Model frequency 
+
++ Phenome-wide association studies (PheWAS)
+
+
+
+---
+class: animated, fadeIn
+# Genomic heritability
+&lt;img src="papers/2-3.jpeg" width="70%" style="display: block; margin: auto;" /&gt;
+&lt;p style="font-family: times, serif; font-size:11pt; font-style:italic"&gt;
+Figure. Genomic heritability for 150 wavelengths and 131 hyperspectral indices with and without inoculation with PGPB (B+ and B-)
+&lt;/p&gt;
+
+---
+class: animated, fadeIn
+# Genomic correlation
+&lt;img src="papers/2-4.jpeg" width="70%" style="display: block; margin: auto;" /&gt;
+&lt;p style="font-family: times, serif; font-size:11pt; font-style:italic"&gt;
+Figure. Genomic correlation for 150 wavelengths and 131 hyperspectral indices with and without inoculation with PGPB (B+ and B-)
+&lt;/p&gt;
+
+---
+class: animated, fadeIn
+#  Manually measured phenotype GWAS
+&lt;img src="papers/2-5.jpeg" width="70%" style="display: block; margin: auto;" /&gt;
+&lt;p style="font-family: times, serif; font-size:11pt; font-style:italic"&gt;
+Figure. Manhatan plot for manually measured phenotypes (plant height, PH; stalk diameter, SD; and shoot dry mass, SDM) under with and without PGPB inoculation (B+ and B-)
+&lt;/p&gt;
+
+---
+class: animated, fadeIn
+# Phenome-wide association studies (PheWAS)
+&lt;img src="papers/2-6.jpeg" width="65%" style="display: block; margin: auto;" /&gt;
+&lt;p style="font-family: times, serif; font-size:11pt; font-style:italic"&gt;
+Figure. PheWAS for the 10 highest model frequency SNPs for plant height (PH), stalk diameter (SD), and shoot dry mass (SDM) for B+ management
+&lt;/p&gt;
+---
+class: animated, fadeIn
+# Multi-phenotype GWAS
+&lt;img src="papers/2.gif" width="70%" style="display: block; margin: auto;" /&gt;
+&lt;p style="font-family: times, serif; font-size:11pt; font-style:italic"&gt;
+Figure. Multi-phenotype GWAS for the 281 hyperspectral phenotype under B+ management 
+&lt;/p&gt;
+
+---
+class: animated, fadeIn
+# Multi-phenotype GWAS
+&lt;p style="font-family: times, serif; font-size:11pt; font-style:italic"&gt;
+Table. Summary of multi-phenotype GWAS for the 281 hyperspectral phenotypes and gene annotation.
+&lt;/p&gt;
+&lt;img src="papers/2-8.jpeg" width="70%" style="display: block; margin: auto;" /&gt;
+
+
+---
+class: animated, fadeIn
+# Shiny app
+&lt;img src="Figures/1.jpeg" width="90%" style="display: block; margin: auto;" /&gt;
+&lt;p style="font-family: times, serif; font-size:11pt; font-style:italic"&gt;
+Figure. Shiny APP
+&lt;/p&gt;
+management
+---
+class: animated, fadeIn
+# Shiny app
+&lt;img src="Figures/2.jpeg" width="90%" style="display: block; margin: auto;" /&gt;
+&lt;p style="font-family: times, serif; font-size:11pt; font-style:italic"&gt;
+Figure. Shiny APP
+&lt;/p&gt;
+
+---
+class: animated, fadeIn
+# Conclusion
+
++ Hyperspectral reflectance can assess the genetic architecture of growth-related phenotypes in maize
+
++ PheWAS analysis is a promossing tool for genetic architecture studies using hyperspectral data
+
++ Shiny app for multi-phenotype Manhattan plots is a user-friendly tool
+
+---
+class: animated, fadeIn
+
+&lt;br /&gt; &lt;br /&gt; &lt;br /&gt; &lt;br /&gt; &lt;br /&gt; &lt;br /&gt;
+#.center[Thank you]
+
+###.right[ Rafael Massahiro Yassue ]
+.right[[rafael.yassue@usp.br](mailto:rafael.yassue@usp.br?subject=%20Presentation)]
+.right[https://rafaelyassue.github.io/cv-online/]
+&lt;img src="Figures/site.png" width="50%" style="display: block; margin: auto 0 auto auto;" /&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create();
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

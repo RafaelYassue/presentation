@@ -56,6 +56,12 @@ knitr::include_graphics("NAPPN.png")
 
 ---
 class: animated, fadeIn
+```{r, echo=FALSE, out.width="110%",fig.cap="", fig.align="center"}
+knitr::include_graphics("NAPPN2.png")
+```
+
+---
+class: animated, fadeIn
 ```{r, echo=FALSE, out.width="120%",fig.cap="", fig.align="center"}
 knitr::include_graphics("TPPJ.png")
 ```

@@ -20,6 +20,7 @@ class: animated, fadeIn
 --
 
 + Allogamous Breeding Lab and Lab of Animal Data Sciences
++ Updates
 
 --
 + Motivations
@@ -45,6 +46,18 @@ class: animated, fadeIn
 # Allogamous Breeding Lab and Lab of Animal Data Sciences
 ```{r, echo=FALSE, out.width="95%",fig.cap="", fig.align="center"}
 knitr::include_graphics("Figures/lab_presentation.png")
+```
+
+---
+class: animated, fadeIn
+```{r, echo=FALSE, out.width="110%",fig.cap="", fig.align="center"}
+knitr::include_graphics("NAPPN.png")
+```
+
+---
+class: animated, fadeIn
+```{r, echo=FALSE, out.width="120%",fig.cap="", fig.align="center"}
+knitr::include_graphics("TPPJ.png")
 ```
 
 ---
@@ -147,6 +160,14 @@ Classification of plant growth-promoting bacteria inoculation status and predict
 
 ---
 class: animated, fadeIn
+# Goals
+
++ Evaluate the utility of hyperspectral image data to classify PGPB inoculation status
+
++ Compare the predictive ability of genomic prediction, hyperspectral prediction, and their combination for growth-related phenotypes under PGPB management.  
+
+---
+class: animated, fadeIn
 # Cross-validation scheme
 ```{r, echo=FALSE, out.width="80%",fig.cap="", fig.align="center"}
 knitr::include_graphics("papers/1-1.jpeg")
@@ -205,6 +226,16 @@ class: inverse, animated, fadeIn
 Integrating hyperspectral and multi-phenotype genome-wide association analysis to dissect the genetic architecture of growth-related phenotypes in maize under inoculation with plant growth-promoting bacteria inoculation
 </h1>
 </center>
+
+---
+class: animated, fadeIn
+# Goals
+
++ Develop a pipeline to integrate phenomics data into GWAS framework
+
++ Employ multi-phenotype GWAS, PheWAS, and gene annotation  in order to identify possible candidate genes to pleiotropic effects 
+
++ Identify candidate phenotypes responsible for changes in the hyperspectral reflectance
 
 ---
 class: animated, fadeIn
@@ -316,6 +347,15 @@ class: animated, fadeIn
 + PheWAS analysis is a promossing tool for genetic architecture studies using hyperspectral data
 
 + Shiny app for multi-phenotype Manhattan plots is a user-friendly tool
+
+---
+class: animated, fadeIn
+# Next steps
+
++ Integrating high-throughput phenotyping and random regression to dissect the genetic architecture of plant growth-promoting bacteria response in tropical maize
+
++ Assessing plant vigor in the early stage of maize development under inoculation with plant growth promoting bacteria through low-resolution thermal images
+
 
 ---
 class: animated, fadeIn

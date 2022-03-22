@@ -1,7 +1,7 @@
 ---
-title: "Integrating hyperspectral images in genetic and prediction studies: a case of study in maize under inoculation with plant growth-promoting bacteria"
+title: "Integrating hyperspectral and thermal images in genetic studies: a case of study in maize under inoculation with plant growth-promoting bacteria"
 author:  
- - Rafael Massahiro Yassue, Roberto Fritsche-Neto, and Gota Morota
+ - Rafael Massahiro Yassue
   
 institute: "ESALQ/USP and Virginia Tech"
 date: "`r Sys.Date()`"
@@ -19,7 +19,6 @@ class: animated, fadeIn
 # Summary
 --
 
-+ Allogamous Breeding Lab and Lab of Animal Data Sciences
 + Updates
 
 --
@@ -33,33 +32,13 @@ class: animated, fadeIn
   - Genetic material
   - PGPB
   - Greenhouse experiment 
-  - hyperspectral data collection
+  - Hyperspectral data collection
 
 --
 + Studies:
  1. Classification of plant growth-promoting bacteria inoculation status and prediction of growth-related traits in tropical maize using hyperspectral image and genomic data
  2. Integrating hyperspectral and multi-phenotype genome-wide association analysis to dissect the genetic architecture of growth-related phenotypes in maize under inoculation with plant growth-promoting bacteria inoculation
- 
----
-class: animated, fadeIn
-
-# Allogamous Breeding Lab and Lab of Animal Data Sciences
-```{r, echo=FALSE, out.width="95%",fig.cap="", fig.align="center"}
-knitr::include_graphics("Figures/lab_presentation.png")
-```
-
----
-class: animated, fadeIn
-```{r, echo=FALSE, out.width="110%",fig.cap="", fig.align="center"}
-knitr::include_graphics("NAPPN.png")
-```
-
----
-class: animated, fadeIn
-```{r, echo=FALSE, out.width="110%",fig.cap="", fig.align="center"}
-knitr::include_graphics("NAPPN2.png")
-```
-
+ 3. Assessing plant vigor in the early stage of maize development under inoculation with plant growth promoting bacteria through low-resolution thermal images
 ---
 class: animated, fadeIn
 ```{r, echo=FALSE, out.width="120%",fig.cap="", fig.align="center"}
@@ -91,10 +70,17 @@ knitr::include_graphics("Figures/why_Hyperpsectral.png")
 
 ---
 class: animated, fadeIn
+# Why use Thermal imagery?
+```{r, echo=FALSE, out.width="95%",fig.cap="", fig.align="center"}
+knitr::include_graphics("Figures/Why thermal.png")
+```
+
+---
+class: animated, fadeIn
 
 # Goal 
 
-+ Using hyperspectral image and genomic data to assess the genetic architecture of the symbioses between maize and plant growth-promoting bacteria and improve the predictive ability for growth-related traits 
++ Using hyperspectral and thermal image and genomic data to assess the genetic architecture of the symbioses between maize and plant growth-promoting bacteria and improve the predictive ability for growth-related traits 
 
 <br /> <br /> <br /> <br />
 
@@ -183,7 +169,6 @@ Figure. Graphic representation of the cross-validation design using the hyperspe
 </p>
 ---
 class: animated, fadeIn
-
 # Single and multi-omic models
 <p style="font-family: times, serif; font-size:11pt; font-style:italic">
 Table. List of models and covariates included in the analysis.
@@ -191,13 +176,42 @@ Table. List of models and covariates included in the analysis.
 ```{r, echo=FALSE, out.width="70%",fig.cap="", fig.align="center"}
 knitr::include_graphics("papers/1-2.jpeg")
 ```
+---
+class: animated, fadeIn
+# Classification and prediction models
+* AutoML: Automated machine learning (Auto-Sklearn)
+```{r, echo=FALSE, out.width="70%",fig.cap="", fig.align="center"}
+knitr::include_graphics("Figures/Auto-sklearn.png")
+```
+
+--
+
+* Single omic prediction
+` \begin{align*}
+\mathbf{y}=\mathbf{X b}+\sum_{i=1}^{\mathrm{m}_{\mathrm{IR}}} \mathbf{W}_{\mathrm{IR}_{i}} a_{\mathrm{IR}_{i}}+\mathbf{e}
+\end{align*}` 
+
+` \begin{align*}
+p\left(a_{\mathrm{IR}_{i}} \mid \pi, d f, S\right)=\pi \times t\left(a_{\mathrm{IR}_{i}} \mid d f, S\right)+(1-\pi) \times\left(a_{\mathrm{IR}_{i}}=0\right)
+\end{align*}` 
+
+--
+
+* Multi-omic models (Multiclass Bayesian analysis)
+` \begin{align*}
+\mathbf{y}=\mathbf{X} \mathbf{b}+\sum_{i=1}^{\mathrm{m}_{\mathrm{IR}}} \mathbf{W}_{\mathrm{IR}_{i}} a_{\mathrm{IR}_{i}}+\sum_{j=1}^{\mathrm{m}_{\mathrm{SNP}}} \mathbf{W}_{\mathrm{SNP}_{j}} a_{\mathrm{SNP}_{j}}+\mathbf{e}
+\end{align*}` 
+
+` \begin{align*}
+p\left(a_{\mathrm{SNP}_{j}} \mid \pi, \mathrm{df}, \mathrm{S}\right)=\pi \times t\left(a_{\mathrm{SNP}_{j}} \mid d f, S\right)+(1-\pi) \times\left(a_{\mathrm{SNP}_{j}}=0\right)
+\end{align*}` 
 
 ---
 class: animated, fadeIn
 
 # PGPB inoculation classification 
 ```{r, echo=FALSE, out.width="70%",fig.cap="", fig.align="center"}
-knitr::include_graphics("papers/1-3.jpeg")
+knitr::include_graphics("papers/1-3.png")
 ```
 <p style="font-family: times, serif; font-size:11pt; font-style:italic">
 Figure. Classification accuracy of inoculation status (B+ and B-) using 150 hyperspectral bands. 
@@ -262,7 +276,36 @@ class: animated, fadeIn
 
 + Phenome-wide association studies (PheWAS)
 
+---
+class: animated, fadeIn
+# BayesC
+In order to estimate the markers effect and  variance components, the following model were used for each combination of phenotype and management (B+ and B-):
 
+` \begin{align*}
+%\label{eq1}
+\mathbf{y} = \mathbf{1}\mu + \mathbf{X}_{1}\mathbf{r} + \mathbf{X}_{2}\mathbf{b} +   \mathbf{Z}_{1}\mathbf{m}+ \boldsymbol{\epsilon}
+\end{align*}` 
+
+`\begin{align*}
+m_{k} | \pi, \sigma^{2}_{mk}  = \begin{cases}
+0 & \text{ with probability of } \pi \\
+\sim N (0, \sigma^{2}_{mk}) & \text{ with probability } (1 - \pi)
+\end{cases}
+\end{align*}` 
+and $\pi$ = 0.99.
+
+---
+class: animated, fadeIn
+
+# Bivariate models
+In order to estimate the genetic correlation between manually measured and hyperspectral traits, we performed bivariate BayesC analysis using the same model described above but the vector $\mathbf{y}$ is a vector containing the a manually measured and a hyperspectral phenotypes; $\mathbf{g}$ $\sim$ N (0, $\Sigma_{g} \otimes \mathbf{M}$) and $\boldsymbol{\epsilon}$ $\sim$ N (0, $\Sigma_{\epsilon} \otimes \mathbf{I}$) the residual;  $\otimes$ is the Kronecker product;and $\Sigma_{g}$ and $\Sigma_{\epsilon}$ are the variance-covariance matrices for additive genomic and residual effects taking the forms of
+
+` \begin{align*}
+\Sigma_{g} = \begin{bmatrix} \sigma^{2}_{g_1}  & \sigma_{g_{12}} \\  \sigma_{g_{21}} & \sigma^{2}_{g_{2}}  \end{bmatrix}, \hspace{0.2cm}
+\Sigma_{\epsilon} = \begin{bmatrix} \sigma^{2}_{\epsilon_{1}}  & \sigma_{\epsilon_{12}} \\  \sigma_{\epsilon_{21}} & \sigma^{2}_{\epsilon_{2}}  \end{bmatrix},   
+\end{align*}` 
+
+where subscripts 1 and 2 refer to the first and second phenotypes.
 
 ---
 class: animated, fadeIn
@@ -297,8 +340,8 @@ Figure. Manhatan plot for manually measured phenotypes (plant height, PH; stalk 
 ---
 class: animated, fadeIn
 # Phenome-wide association studies (PheWAS)
-```{r, echo=FALSE, out.width="65%",fig.cap="", fig.align="center"}
-knitr::include_graphics("papers/2-6.jpeg")
+```{r, echo=FALSE, out.width="100%",fig.cap="", fig.align="center"}
+knitr::include_graphics("papers/2-6.png")
 ```
 <p style="font-family: times, serif; font-size:11pt; font-style:italic">
 Figure. PheWAS for the 10 highest model frequency SNPs for plant height (PH), stalk diameter (SD), and shoot dry mass (SDM) for B+ management
@@ -355,13 +398,108 @@ class: animated, fadeIn
 + Shiny app for multi-phenotype Manhattan plots is a user-friendly tool
 
 ---
+class: inverse, animated, fadeIn
+ <br /> <br /> <br /> <br /> <br />
+<center>
+<h1>
+Assessing plant vigor in the early stage of maize development under inoculation with plant growth promoting bacteria through low-resolution thermal images
+</h1>
+</center>
+---
+class: animated, fadeIn
+
+# Goal 
+
++ Use thermal image to assess plant stress
+
++ Validate thermal data using manually mesuared and hyperspectral image data
+
++ Understand the genetic architecture of thermal phenotypes under inoculation with PGPB
+
++ Provide a Python package for low-resolution thermal image processing for conveyor HTP platform
+
+---
+class: animated, fadeIn
+# Thermal data collection
+
+```{r  , echo=FALSE, fig.show = "hold", out.width = "50%", fig.align = "default"}
+knitr::include_graphics("Figures/RGB_colection.gif")
+knitr::include_graphics("Figures/thermal_coletion.gif")
+```
+
+<p style="font-family: times, serif; font-size:11pt; font-style:italic">
+Figure.  RGB (left) and thermal (right) image collection using a low-cost greenhouse-based high-throughput phenotyping platform
+</p>
+
+
+---
+class: animated, fadeIn
+# Materials and Methods
+
++ Thermal image acquisition: 
+    - Flir vue pro R: 336 × 256 pixels
+
+--
+
++ Processing Low-resolution thermal image: 
+   - Converting radiation to Celsius degree
+   - Stitching group images 
+   - Identify local coordinates for each plot in each image
+   - Identify global coordinates for each pot in the whole experiment
+   - Extract information:
+      * Image segmentation using watershed algorithm
+
+--
+
++ Assessing plant stress 
+   - Canopy temperature 
+   - Validate using manually measured phenotypes and hyperspectral data:
+      * Phenotypic and genomic correlation
+      * GWAS
+      * Gene annotation
+
+---
+class: animated, fadeIn
+# Image sticthing and pot identification
+```{r, echo=FALSE, out.width="150%",fig.cap="", fig.align="center"}
+knitr::include_graphics("Figures/Thermal_01.png")
+```
+---
+class: animated, fadeIn
+# Local coordinates
+```{r, echo=FALSE, out.width="70%",fig.cap="", fig.align="center"}
+knitr::include_graphics("Figures/thermal02.png")
+```
+---
+class: animated, fadeIn
+# Global coordinates
+```{r, echo=FALSE, out.width="150%",fig.cap="", fig.align="center"}
+knitr::include_graphics("Figures/thermal_2.gif")
+```
+
+
+---
+class: animated, fadeIn
+#  Extract information
+```{r, echo=FALSE, out.width="100%",fig.cap="", fig.align="center"}
+knitr::include_graphics("Figures/Extract_info.png")
+```
+---
+class: animated, fadeIn
+#  Expect results
++ Plants in B+ management has lower temperature than in the B-
+
++ Moderate correlation with hyperspectral phenotypes and manually mesuared
+
++ Some SNPs associated with canopy temperature, nitrogen uptake, and abiotic stress
+
++ Python package 
+
+---
 class: animated, fadeIn
 # Next steps
 
 + Integrating high-throughput phenotyping and random regression to dissect the genetic architecture of plant growth-promoting bacteria response in tropical maize
-
-+ Assessing plant vigor in the early stage of maize development under inoculation with plant growth promoting bacteria through low-resolution thermal images
-
 
 ---
 class: animated, fadeIn

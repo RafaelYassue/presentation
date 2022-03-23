@@ -17,28 +17,27 @@ output:
 class: animated, fadeIn
 
 # Summary
---
-
 + Updates
 
 --
+
 + Motivations
  - Why study plant growth-promoting bacteria (PGPB)?
  - Why study the genetic architecture of the response to PGPB?
  - Why use hyperspectral imagery?
+ - Why use thermal imagery?
 
 --
+
 + Material and Methods
-  - Genetic material
-  - PGPB
-  - Greenhouse experiment 
-  - Hyperspectral data collection
 
 --
+
 + Studies:
  1. Classification of plant growth-promoting bacteria inoculation status and prediction of growth-related traits in tropical maize using hyperspectral image and genomic data
  2. Integrating hyperspectral and multi-phenotype genome-wide association analysis to dissect the genetic architecture of growth-related phenotypes in maize under inoculation with plant growth-promoting bacteria inoculation
  3. Assessing plant vigor in the early stage of maize development under inoculation with plant growth promoting bacteria through low-resolution thermal images
+ 
 ---
 class: animated, fadeIn
 ```{r, echo=FALSE, out.width="120%",fig.cap="", fig.align="center"}
@@ -180,37 +179,33 @@ knitr::include_graphics("papers/1-2.jpeg")
 class: animated, fadeIn
 # Classification and prediction models
 * AutoML: Automated machine learning (Auto-Sklearn)
-```{r, echo=FALSE, out.width="70%",fig.cap="", fig.align="center"}
+```{r, echo=FALSE, out.width="90%",fig.cap="", fig.align="center"}
 knitr::include_graphics("Figures/Auto-sklearn.png")
 ```
 
 --
 
 * Single omic prediction
-` \begin{align*}
-\mathbf{y}=\mathbf{X b}+\sum_{i=1}^{\mathrm{m}_{\mathrm{IR}}} \mathbf{W}_{\mathrm{IR}_{i}} a_{\mathrm{IR}_{i}}+\mathbf{e}
+`\begin{align*}
+\mathbf{y}=\mathbf{X b}+\sum_{i=1}^{\mathrm{m}_{\mathrm{HSI}}} \mathbf{W}_{\mathrm{HSI}_{i}} a_{\mathrm{HSI}_{i}}+\mathbf{e}
 \end{align*}` 
 
-` \begin{align*}
-p\left(a_{\mathrm{IR}_{i}} \mid \pi, d f, S\right)=\pi \times t\left(a_{\mathrm{IR}_{i}} \mid d f, S\right)+(1-\pi) \times\left(a_{\mathrm{IR}_{i}}=0\right)
+`\begin{align*}
+\mathbf{y}=\mathbf{X b}+\sum_{i=1}^{\mathrm{m}_{\mathrm{SNP}}} \mathbf{W}_{\mathrm{SNP}_{i}} a_{\mathrm{SNP}_{i}}+\mathbf{e}
 \end{align*}` 
 
 --
 
 * Multi-omic models (Multiclass Bayesian analysis)
-` \begin{align*}
-\mathbf{y}=\mathbf{X} \mathbf{b}+\sum_{i=1}^{\mathrm{m}_{\mathrm{IR}}} \mathbf{W}_{\mathrm{IR}_{i}} a_{\mathrm{IR}_{i}}+\sum_{j=1}^{\mathrm{m}_{\mathrm{SNP}}} \mathbf{W}_{\mathrm{SNP}_{j}} a_{\mathrm{SNP}_{j}}+\mathbf{e}
-\end{align*}` 
-
-` \begin{align*}
-p\left(a_{\mathrm{SNP}_{j}} \mid \pi, \mathrm{df}, \mathrm{S}\right)=\pi \times t\left(a_{\mathrm{SNP}_{j}} \mid d f, S\right)+(1-\pi) \times\left(a_{\mathrm{SNP}_{j}}=0\right)
+`\begin{align*}
+\mathbf{y}=\mathbf{X} \mathbf{b}+\sum_{i=1}^{\mathrm{m}_{\mathrm{HSI}}} \mathbf{W}_{\mathrm{HSI}_{i}} a_{\mathrm{HSI}_{i}}+\sum_{j=1}^{\mathrm{m}_{\mathrm{SNP}}} \mathbf{W}_{\mathrm{SNP}_{j}} a_{\mathrm{SNP}_{j}}+\mathbf{e}
 \end{align*}` 
 
 ---
 class: animated, fadeIn
 
 # PGPB inoculation classification 
-```{r, echo=FALSE, out.width="70%",fig.cap="", fig.align="center"}
+```{r, echo=FALSE, out.width="60%",fig.cap="", fig.align="center"}
 knitr::include_graphics("papers/1-3.png")
 ```
 <p style="font-family: times, serif; font-size:11pt; font-style:italic">
@@ -298,14 +293,22 @@ and $\pi$ = 0.99.
 class: animated, fadeIn
 
 # Bivariate models
-In order to estimate the genetic correlation between manually measured and hyperspectral traits, we performed bivariate BayesC analysis using the same model described above but the vector $\mathbf{y}$ is a vector containing the a manually measured and a hyperspectral phenotypes; $\mathbf{g}$ $\sim$ N (0, $\Sigma_{g} \otimes \mathbf{M}$) and $\boldsymbol{\epsilon}$ $\sim$ N (0, $\Sigma_{\epsilon} \otimes \mathbf{I}$) the residual;  $\otimes$ is the Kronecker product;and $\Sigma_{g}$ and $\Sigma_{\epsilon}$ are the variance-covariance matrices for additive genomic and residual effects taking the forms of
+` \begin{align*}
+%\label{eq1}
+\mathbf{y}_{t} = \mathbf{1}\mu + \mathbf{X}_{1}\mathbf{r} + \mathbf{X}_{2}\mathbf{b} +   \mathbf{Z}_{1}\mathbf{m}+ \boldsymbol{\epsilon}
+\end{align*}` 
+
+$\mathbf{m}$ $\sim$ N (0, $\Sigma_{g} \otimes \mathbf{M}$) 
+
+$\boldsymbol{\epsilon}$ $\sim$ N (0, $\Sigma_{\epsilon} \otimes \mathbf{I}$) the residual; 
+
+$\otimes$ is the Kronecker product;a
 
 ` \begin{align*}
 \Sigma_{g} = \begin{bmatrix} \sigma^{2}_{g_1}  & \sigma_{g_{12}} \\  \sigma_{g_{21}} & \sigma^{2}_{g_{2}}  \end{bmatrix}, \hspace{0.2cm}
 \Sigma_{\epsilon} = \begin{bmatrix} \sigma^{2}_{\epsilon_{1}}  & \sigma_{\epsilon_{12}} \\  \sigma_{\epsilon_{21}} & \sigma^{2}_{\epsilon_{2}}  \end{bmatrix},   
 \end{align*}` 
 
-where subscripts 1 and 2 refer to the first and second phenotypes.
 
 ---
 class: animated, fadeIn
@@ -464,24 +467,46 @@ class: animated, fadeIn
 ```{r, echo=FALSE, out.width="150%",fig.cap="", fig.align="center"}
 knitr::include_graphics("Figures/Thermal_01.png")
 ```
+<p style="font-family: times, serif; font-size:11pt; font-style:italic">
+Figure. Thermal images used for stitching (1-5). Representation of the stitched image. 
+</p>
 ---
 class: animated, fadeIn
 # Local coordinates
 ```{r, echo=FALSE, out.width="70%",fig.cap="", fig.align="center"}
 knitr::include_graphics("Figures/thermal02.png")
 ```
+<p style="font-family: times, serif; font-size:11pt; font-style:italic">
+Figure. Thermal image processing analysis. Stitched image, plot detection, and local coordinates. 
+</p>
+
 ---
 class: animated, fadeIn
 # Global coordinates
-```{r, echo=FALSE, out.width="150%",fig.cap="", fig.align="center"}
+```{r, echo=FALSE, out.width="90%",fig.cap="", fig.align="center"}
 knitr::include_graphics("Figures/thermal_2.gif")
 ```
+<p style="font-family: times, serif; font-size:11pt; font-style:italic">
+Figure. Representation of the global coordinate across several stitched images.
+</p>
+---
+class: animated, fadeIn
+#  Computing global coordinates
+```{r, echo=FALSE, out.width="49%",fig.cap="", fig.align="center"}
+knitr::include_graphics("Figures/GC_global.png")
+```
 
+```{r, echo=FALSE, out.width="45%",fig.cap="", fig.align="center"}
+knitr::include_graphics("Figures/GC.gif")
+```
+<p style="font-family: times, serif; font-size:11pt; font-style:italic">
+Figure. Representation of global coordinate estimation.
+</p>
 
 ---
 class: animated, fadeIn
 #  Extract information
-```{r, echo=FALSE, out.width="100%",fig.cap="", fig.align="center"}
+```{r, echo=FALSE, out.width="90%",fig.cap="", fig.align="center"}
 knitr::include_graphics("Figures/Extract_info.png")
 ```
 ---

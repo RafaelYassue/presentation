@@ -4,7 +4,7 @@
     <title>Integrating hyperspectral and thermal images in genetic studies: a case of study in maize under inoculation with plant growth-promoting bacteria</title>
     <meta charset="utf-8" />
     <meta name="author" content="Rafael Massahiro Yassue" />
-    <meta name="date" content="2022-03-22" />
+    <meta name="date" content="2022-03-23" />
     <script src="libs/header-attrs-2.11/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
@@ -17,7 +17,7 @@ class: center, middle, inverse, title-slide
 # Integrating hyperspectral and thermal images in genetic studies: a case of study in maize under inoculation with plant growth-promoting bacteria
 ### Rafael Massahiro Yassue
 ### ESALQ/USP and Virginia Tech
-### 2022-03-22
+### 2022-03-23
 
 ---
 
@@ -104,6 +104,8 @@ class: animated, fadeIn
 + Hyperspectral phenotypes: 
   - 150 wavelengths (from 386 to 1021 nm)
   - 131 hyperspectral index
++ Thermal phenotypes
+
 
 ---
 class: animated, fadeIn
@@ -168,7 +170,7 @@ class: animated, fadeIn
 
 --
 
-* Single omic prediction
+* Single-omic prediction
 `\begin{align*}
 \mathbf{y}=\mathbf{X b}+\sum_{i=1}^{\mathrm{m}_{\mathrm{HSI}}} \mathbf{W}_{\mathrm{HSI}_{i}} a_{\mathrm{HSI}_{i}}+\mathbf{e}
 \end{align*}` 
@@ -281,7 +283,7 @@ class: animated, fadeIn
 
 `\(\boldsymbol{\epsilon}\)` `\(\sim\)` N (0, `\(\Sigma_{\epsilon} \otimes \mathbf{I}\)`) the residual; 
 
-`\(\otimes\)` is the Kronecker product;a
+`\(\otimes\)` is the Kronecker product
 
 ` \begin{align*}
 \Sigma_{g} = \begin{bmatrix} \sigma^{2}_{g_1}  &amp; \sigma_{g_{12}} \\  \sigma_{g_{21}} &amp; \sigma^{2}_{g_{2}}  \end{bmatrix}, \hspace{0.2cm}
@@ -368,7 +370,7 @@ class: inverse, animated, fadeIn
  &lt;br /&gt; &lt;br /&gt; &lt;br /&gt; &lt;br /&gt; &lt;br /&gt;
 &lt;center&gt;
 &lt;h1&gt;
-Assessing plant vigor in the early stage of maize development under inoculation with plant growth promoting bacteria through low-resolution thermal images
+Assessing plant vigor in the early stage of maize development under inoculation with plant growth-promoting bacteria through low-resolution thermal images
 &lt;/h1&gt;
 &lt;/center&gt;
 ---
@@ -404,7 +406,7 @@ class: animated, fadeIn
 
 --
 
-+ Processing Low-resolution thermal image: 
++ Processing Low-resolution thermal images: 
    - Converting radiation to Celsius degree
    - Stitching group images 
    - Identify local coordinates for each plot in each image
@@ -423,7 +425,7 @@ class: animated, fadeIn
 
 ---
 class: animated, fadeIn
-# Image sticthing and pot identification
+# Image stitching and pot identification
 &lt;img src="Figures/Thermal_01.png" width="150%" style="display: block; margin: auto;" /&gt;
 &lt;p style="font-family: times, serif; font-size:11pt; font-style:italic"&gt;
 Figure. Thermal images used for stitching (1-5). Representation of the stitched image. 
@@ -433,7 +435,7 @@ class: animated, fadeIn
 # Local coordinates
 &lt;img src="Figures/thermal02.png" width="70%" style="display: block; margin: auto;" /&gt;
 &lt;p style="font-family: times, serif; font-size:11pt; font-style:italic"&gt;
-Figure. Thermal image processing analysis. Stitched image, plot detection, and local coordinates. 
+Figure. Thermal image processing. Stitched image, plot detection, and local coordinates. 
 &lt;/p&gt;
 
 ---
@@ -456,13 +458,18 @@ Figure. Representation of global coordinate estimation.
 ---
 class: animated, fadeIn
 #  Extract information
-&lt;img src="Figures/Extract_info.png" width="90%" style="display: block; margin: auto;" /&gt;
+&lt;img src="Figures/Extract_info.png" width="85%" style="display: block; margin: auto;" /&gt;
+&lt;p style="font-family: times, serif; font-size:11pt; font-style:italic"&gt;
+Figure. Schematic representation of the information extraction from the stitched thermal images.
+&lt;/p&gt;
+
+
 ---
 class: animated, fadeIn
 #  Expect results
 + Plants in B+ management has lower temperature than in the B-
 
-+ Moderate correlation with hyperspectral phenotypes and manually mesuared
++ Moderate correlation with hyperspectral phenotypes and manually measured
 
 + Some SNPs associated with canopy temperature, nitrogen uptake, and abiotic stress
 

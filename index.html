@@ -254,42 +254,47 @@ class: animated, fadeIn
 
 ---
 class: animated, fadeIn
-# BayesC
+# Single trait BayesC
 In order to estimate the markers effect and  variance components, the following model were used for each combination of phenotype and management (B+ and B-):
 
 ` \begin{align*}
-%\label{eq1}
-\mathbf{y} = \mathbf{1}\mu + \mathbf{X}_{1}\mathbf{r} + \mathbf{X}_{2}\mathbf{b} +   \mathbf{Z}_{1}\mathbf{m}+ \boldsymbol{\epsilon}
-\end{align*}` 
+\boldsymbol{y}_{rli}=\boldsymbol{\mu}+\boldsymbol{r}_k+\boldsymbol{b}_l+ \sum_{j=1}^{p} m_{i j} \boldsymbol{\alpha}_{j}+\boldsymbol{e}_{rli}
+\end{align*}`
 
 `\begin{align*}
-m_{k} | \pi, \sigma^{2}_{mk}  = \begin{cases}
+\alpha_{j} | \pi, \sigma^{2}_{j}  = \begin{cases}
 0 &amp; \text{ with probability of } \pi \\
-\sim N (0, \sigma^{2}_{mk}) &amp; \text{ with probability } (1 - \pi)
+\sim N (0, \sigma^{2}_{j}) &amp; \text{ with probability } (1 - \pi)
 \end{cases}
 \end{align*}` 
+
 and `\(\pi\)` = 0.99.
 
 ---
 class: animated, fadeIn
-
-# Bivariate models
-` \begin{align*}
-%\label{eq1}
-\mathbf{y}_{t} = \mathbf{1}\mu + \mathbf{X}_{1}\mathbf{r} + \mathbf{X}_{2}\mathbf{b} +   \mathbf{Z}_{1}\mathbf{m}+ \boldsymbol{\epsilon}
-\end{align*}` 
-
-`\(\mathbf{m}\)` `\(\sim\)` N (0, `\(\Sigma_{g} \otimes \mathbf{M}\)`) 
-
-`\(\boldsymbol{\epsilon}\)` `\(\sim\)` N (0, `\(\Sigma_{\epsilon} \otimes \mathbf{I}\)`) the residual; 
-
-`\(\otimes\)` is the Kronecker product
+# Bivariate BayesC
 
 ` \begin{align*}
-\Sigma_{g} = \begin{bmatrix} \sigma^{2}_{g_1}  &amp; \sigma_{g_{12}} \\  \sigma_{g_{21}} &amp; \sigma^{2}_{g_{2}}  \end{bmatrix}, \hspace{0.2cm}
-\Sigma_{\epsilon} = \begin{bmatrix} \sigma^{2}_{\epsilon_{1}}  &amp; \sigma_{\epsilon_{12}} \\  \sigma_{\epsilon_{21}} &amp; \sigma^{2}_{\epsilon_{2}}  \end{bmatrix},   
-\end{align*}` 
+\boldsymbol{y}_{rli}=\boldsymbol{\mu}+\boldsymbol{r}_k+\boldsymbol{b}_l+ \sum_{j=1}^{p} m_{i j} \boldsymbol{\alpha}_{j}+\boldsymbol{e}_{rli}
+\end{align*}`
 
+` \begin{align*}
+\boldsymbol{\alpha}_{j}\ =\boldsymbol{D}_{j}\boldsymbol{\beta}_{j}
+\end{align*}`
+
+` \begin{align*}
+\operatorname{\textit{diag}}\left(\boldsymbol{D}_{j}\right)=\delta_{j}=\left(\delta_{j 1}, \delta_{j 2}, \delta_{j 3} \ldots \delta_{j t}\right)
+\end{align*}`
+
+` \begin{align*}
+\boldsymbol{\beta}_{j} \sim MVN (Null, \mathbf{G}) 
+\end{align*}`
+
+
+where 
+` \begin{align*}
+\mathbf{G} = \begin{bmatrix} \sigma^{2}_{g_1}  &amp; \sigma_{g_{12}} \\  \sigma_{g_{21}} &amp; \sigma^{2}_{g_{2}}  \end{bmatrix}, \hspace{0.2cm}
+\end{align*}`
 
 ---
 class: animated, fadeIn
